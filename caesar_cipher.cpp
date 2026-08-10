@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string text;
+    int key;
+
+    cout << "Enter a message: ";
+    getline(cin, text);
+
+    cout << "Enter key value: ";
+    cin >> key;
+
+    // Encryption
+    for (int i = 0; i < text.length(); i++)
+    {
+        if (text[i] >= 'A' && text[i] <= 'Z')
+        {
+            text[i] = (text[i] - 'A' + key) % 26 + 'A';
+        }
+        else if (text[i] >= 'a' && text[i] <= 'z')
+        {
+            text[i] = (text[i] - 'a' + key) % 26 + 'a';
+        }
+    }
+
+    cout << "Encrypted message: " << text;
+
+    return 0;
+}
